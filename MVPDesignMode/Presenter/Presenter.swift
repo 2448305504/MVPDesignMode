@@ -11,10 +11,10 @@ class Presenter: NSObject {
     // 用于处理数据来源
     private let service = UserService()
     // 保存VC。用于做更新操作
-    private let attachView: UserViewProtocol!
+    private weak var attachView: ViewController!
     
     init(attach view: UserViewProtocol) {
-        self.attachView = view
+        self.attachView = view as? ViewController
     }
     
     // 调用service获取数据
